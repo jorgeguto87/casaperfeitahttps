@@ -1,0 +1,23 @@
+{
+  "name": "casaperfeitahttps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "multer": "^2.0.1",
+    "node-cron": "^4.1.1",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.4",
+    "whatsapp-web.js": "^1.31.0"
+  }
+}

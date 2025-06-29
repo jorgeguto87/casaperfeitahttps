@@ -1,0 +1,7 @@
+node_modules/
+.wwebjs_auth/
+.wwebjs_cache
+grupos_scan.txt
+grupo_check.txt
+login.txt
+assets
