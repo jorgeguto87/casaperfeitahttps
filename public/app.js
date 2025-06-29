@@ -686,6 +686,12 @@ if (document.getElementById('qrcode')) {
 }
 
 // ⏰ Horários (incluir dentro da função inicializarElementosPagina)
+const selects = [
+  'chooseHours1', 'chooseHours2', 'chooseHours3',
+  'chooseHours4', 'chooseHours5', 'chooseHours6'
+];
+
+
 const statusEl = document.getElementById('statushorarios');
 const listaEl = document.getElementById('horarios_escolhidos');
 const btnConfirmar = document.getElementById('confirmar_horas');
