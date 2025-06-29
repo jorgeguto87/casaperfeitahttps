@@ -1,3 +1,4 @@
+const https = require('https');
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -6,9 +7,23 @@ const fsPromises = require('fs').promises;
 const qrcode = require('qrcode');
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const cron = require('node-cron');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3060;
+
+app.use(cors({
+  origin: 'https://atentus.com.br',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true
+}));
+
+
+//credenciais ssl
+const credentials = {
+    key: fs.readFileSync('/etc/letsencrypt/live/atentus.com.br/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/atentus.com.br/fullchain.pem')
+};
 
 const assetsDir = path.join(__dirname, 'assets');
 if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir);
@@ -1472,6 +1487,7 @@ app.get('/chatbot-status', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`🟢 Servidor rodando em http://localhost:${PORT}/index.html`);
+const httpsServer = https.createServer(credentials, app);
+httpsServer.listen(PORT, () => {
+    console.log(`Servidor rodando em https://atentus.com.br:${PORT}`);
 });
