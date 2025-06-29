@@ -694,7 +694,7 @@ if (btnConfirmar && listaEl && statusEl) {
   const textoOriginalBotao = btnConfirmar.innerText;
 
   function carregarHorarios() {
-    fetch('https://atentus.com.br:3040/horarios')
+    fetch('https://atentus.com.br:3060/horarios')
       .then(res => res.json())
       .then(data => {
         const lista = data.horarios || [];
